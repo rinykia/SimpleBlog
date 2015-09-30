@@ -51,6 +51,8 @@
 		  <li><a href="/articles">Posts</a></li>
 		  <li><a href="/contacts">Contacts</a></li>
 		  <li><a href="/terms">Terms</a></li>
+		  <li><a href="/users/sign_in">Sing in</a></li>
+		  <li><a href="/users/sign_out" data-method="delete">Sing out</a></li>
 		</ul>
 	  </div><!--/.nav-collapse -->
 	</nav>
@@ -59,7 +61,6 @@
 	  <% if @error && @error.length > 0 then %>
 		<div class="alert alert-danger"><%= @error %></div>
 	  <% end %>
-
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 	  <%= yield %>
