@@ -31,38 +31,39 @@
 	<![endif]-->
 </head>
 <body>
-<div class="container">
-      <!-- Static navbar -->
-	  <nav class="navbar navbar-default" role="navigation">
-	    <div class="navbar-header">
-		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
-		  <a class="navbar-brand" href="/">Blog</a>
-	    </div>
-		<div class="navbar-collapse collapse">
-		  <ul class="nav navbar-nav">
-			<li><a href="/about">About</a></li>
-			<li><a href="/articles/new">New post</a></li>
-			<li><a href="/articles">Posts</a></li>
-			<li><a href="/contacts">Contacts</a></li>
-			<li><a href="/terms">Terms</a></li>
-		  </ul>
-		</div><!--/.nav-collapse -->
-	  </nav>
-	  <!-- вывод ошибок -->
-	  <div>
-		<% if @error && @error.length > 0 then %>
-		  <div class="alert alert-danger"><%= @error %></div>
-		<% end %>
-		<%= yield %>
+  
+  <div class="container">
+    <!-- Static navbar -->
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="/">Blog</a>
 	  </div>
+	  <div class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+		  <li><a href="/about">About</a></li>
+		  <li><a href="/articles/new">New post</a></li>
+		  <li><a href="/articles">Posts</a></li>
+		  <li><a href="/contacts">Contacts</a></li>
+		  <li><a href="/terms">Terms</a></li>
+		</ul>
+	  </div><!--/.nav-collapse -->
+	</nav>
+	<!-- вывод ошибок -->
+	<div>
+	  <% if @error && @error.length > 0 then %>
+		<div class="alert alert-danger"><%= @error %></div>
+	  <% end %>
+
+	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+	  <%= yield %>
 	</div>
-
-
-
+  </div>
 </body>
 </html>
