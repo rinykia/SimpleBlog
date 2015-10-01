@@ -59,7 +59,7 @@
 	  <% if @error && @error.length > 0 then %>
 		<div class="alert alert-danger"><%= @error %></div>
 	  <% end %>
-
+	<!--log in  and log out -->
 	<% if user_signed_in? %>
 	  <%= current_user.email %> | <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
 	<% else %>
