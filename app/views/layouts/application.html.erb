@@ -31,7 +31,6 @@
 	<![endif]-->
 </head>
 <body>
-  
   <div class="container">
     <!-- Static navbar -->
 	<nav class="navbar navbar-default" role="navigation">
@@ -52,22 +51,30 @@
 		  <li><a href="/contacts">Contacts</a></li>
 		  <li><a href="/terms">Terms</a></li>
 		</ul>
+	    <ul class="nav navbar-nav navbar-right">
+	    <% if @error && @error.length > 0 then %>
+		  <div class="alert alert-danger"><%= @error %></div>
+	    <% end %>
+	    <!--log in  and log out -->
+	    <% if user_signed_in? %>
+          <li>
+            <a href="#"><%= current_user.username %></a>
+          </li>
+          <li>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
+          <li>
+	        <%= link_to 'Sign in', new_user_session_path %> 
+	      <% end %>
+	      </li>       
+        </ul>	
 	  </div><!--/.nav-collapse -->
 	</nav>
 	<!-- вывод ошибок -->
 	<div>
-	  <% if @error && @error.length > 0 then %>
-		<div class="alert alert-danger"><%= @error %></div>
-	  <% end %>
-	<!--log in  and log out -->
-	<% if user_signed_in? %>
-	  <%= current_user.username %> | <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-	<% else %>
-	  <%= link_to 'Sign in', new_user_session_path %> 
-	<% end %>
-	
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+	  <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 	  <%= yield %>
 	</div>
   </div>
