@@ -8,15 +8,15 @@ class ArticlesController < ApplicationController
   def new
   end
 
-  def create 
+  def create
     @article = Article.new(article_params)
     @article.author = current_user.username
-    
+
     if @article.save
       redirect_to @article
     else
-      render action: 'new' 
-    end  
+      render action: 'new'
+    end
   end
 
    def show
@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    redirect_to :root unless current_user == @article.user
   end
 
   def update
@@ -32,8 +33,8 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
-      render action: 'edit' 
-    end  
+      render action: 'edit'
+    end
   end
 
   def destroy
@@ -45,7 +46,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :user_id)
   end
 
 end
