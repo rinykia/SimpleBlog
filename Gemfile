@@ -57,3 +57,6 @@ group :test, :development do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'database_cleaner'
 end
+
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'

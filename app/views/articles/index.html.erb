@@ -1,17 +1,22 @@
 <% @articles.each do |article| %>
-<h2><%= article.title %></h2>
-<p><%= article.text %></p>
-<p>
 
-  <%= link_to 'Show', article_path(article) %>
+<div class="row">
+  <img src="<%= article.avatar %>" class="col-md-6" style="width: 130px; height: 100px;" alt="">
 
-  <% if current_user == article.user %>
-    <%= link_to 'Edit', edit_article_path(article) %>
+  <div class="col-md-6">
+    <h2><%= article.title %></h2>
+    <p><%= article.text %></p>
 
-  <%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+    <%= link_to 'Show', article_path(article) %>
 
-</p>
-<hr/>
+    <% if current_user == article.user %>
+      <%= link_to 'Edit', edit_article_path(article) %>
 
+      <%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <% end %>
+  </div>
+
+</div>
+  <hr/>
 <% end %>

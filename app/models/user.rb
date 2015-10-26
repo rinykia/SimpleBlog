@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles
 
-  ROLES = %w[author admin]
+ ROLES = %w[user admin]
 
   # Проверка на наличие пользователей.
   # Если ты первый, то удача повернулась к тебе лицом и ты становишься админом!! Та-да!
@@ -14,5 +14,6 @@ class User < ActiveRecord::Base
       self.role = 'admin'
     end
   end
+
 
 end
